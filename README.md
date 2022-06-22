@@ -1,6 +1,6 @@
 # tic-tac-toe
 
-The purpose of this project was to create a command-line Tic-Tac-Toe game using OOP principles, context in regular functions and arrow functions.
+The purpose of this project was to create a command-line Tic-Tac-Toe game using OOP principles, context in regular functions and context in arrow functions.
 
 ## Running the game
 

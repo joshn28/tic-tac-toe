@@ -150,7 +150,7 @@ class TTT {
 
     if ([grid[0][0], grid[1][1], grid[2][2]].every(char => char === player)) {
       return true;
-    } else if ([grid[0][2], grid[1][1], grid[0][2]].every(char => char === player)) {
+    } else if ([grid[0][2], grid[1][1], grid[2][0]].every(char => char === player)) {
       return true;
     } else {
       return false;

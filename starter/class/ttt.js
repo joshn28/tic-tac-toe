@@ -59,13 +59,17 @@ class TTT {
       this.grid[row][col] = this.playerTurn;
       
       Screen.setGrid(row, col, this.playerTurn);
-      Screen.setMessage(`It's ${this.playerTurn}'s turn`);
-      Screen.render();
 
       if (this.playerTurn === 'X') {
         this.playerTurn = 'O';
+        
+        Screen.setMessage(`It's ${this.playerTurn}'s turn`);
+        Screen.render();
       } else {
         this.playerTurn = 'X';
+
+        Screen.setMessage(`It's ${this.playerTurn}'s turn`);
+        Screen.render();
       }
     } else {
       console.log('space is occupied');

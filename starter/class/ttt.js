@@ -50,6 +50,14 @@ class TTT {
       return 'X';
     } else if (TTT.checkVerticalWin(grid, 'O')) {
       return 'O';
+    } else if (TTT.checkDiagonalWin(grid, 'X')) {
+      return 'X';
+    } else if (TTT.checkDiagonalWin(grid, 'O')) {
+      return 'O';
+    } else if (TTT.checkTie(grid)) {
+      return 'T';
+    } else {
+      return false;
     }
 
   }
@@ -93,6 +101,29 @@ class TTT {
     }
 
     return false;
+  }
+
+  static checkDiagonalWin(grid, player) {
+
+    if ([grid[0][0], grid[1][1], grid[2][2]].every(char => char === player)) {
+      return true;
+    } else if ([grid[0][2], grid[1][1], grid[0][2]].every(char => char === player)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  static checkTie(grid) {
+
+    let isTie = true;
+    grid.forEach(row => {
+      if (row.some(char => char === ' ')) {
+        isTie = false;
+      }
+    });
+
+    return isTie;
   }
 
   static endGame(winner) {

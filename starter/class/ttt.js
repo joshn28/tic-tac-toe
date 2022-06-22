@@ -40,6 +40,9 @@ class TTT {
         TTT.endGame(winner);
       }
     });
+    Screen.addCommand('l', 'list all commands', () => {
+      Screen.printCommands();
+    });
 
     Screen.setMessage(`It's ${this.playerTurn}'s turn`);
 
@@ -54,7 +57,7 @@ class TTT {
 
     if (this.grid[row][col] === ' ') {
       this.grid[row][col] = this.playerTurn;
-
+      
       Screen.setGrid(row, col, this.playerTurn);
       Screen.setMessage(`It's ${this.playerTurn}'s turn`);
       Screen.render();

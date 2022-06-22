@@ -23,7 +23,7 @@ class Cursor {
   }
 
   up() {
-    if (this.row -1 >= 0) {
+    if (this.row - 1 >= 0) {
       this.row -= 1;
     }
   }

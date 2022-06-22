@@ -17,6 +17,19 @@ class TTT {
     Screen.initialize(3, 3);
     Screen.setGridlines(true);
 
+    Screen.addCommand('w', 'move cursor up', () => {
+      this.cursor.up();
+    });
+    Screen.addCommand('a', 'move cursor left', () => {
+      this.cursor.left();
+    });
+    Screen.addCommand('s', 'move cursor down', () => {
+      this.cursor.down();
+    });
+    Screen.addCommand('d', 'move cursor right', () => {
+      this.cursor.right();
+    });
+
     Screen.render();
   }
 

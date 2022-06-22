@@ -31,8 +31,24 @@ class TTT {
     Screen.addCommand('d', 'move cursor right', () => {
       this.cursor.right();
     });
+    Screen.addCommand('p', 'place a move at the cursor\'s position', () => {
+      this.placeMove();
+    });
 
     Screen.render();
+  }
+
+  placeMove() {
+    const row = this.cursor.row;
+    const col = this.cursor.col;
+
+    Screen.setGrid(row, col, this.playerTurn);
+
+    if (this.playerTurn === 'X') {
+      this.playerTurn = 'O';
+    } else {
+      this.playerTurn = 'X';
+    }
   }
 
   static checkWin(grid) {

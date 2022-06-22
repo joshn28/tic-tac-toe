@@ -17,6 +17,8 @@ class TTT {
     Screen.initialize(3, 3);
     Screen.setGridlines(true);
 
+    this.cursor.setBackgroundColor();
+
     Screen.addCommand('w', 'move cursor up', () => {
       this.cursor.up();
     });

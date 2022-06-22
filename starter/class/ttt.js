@@ -46,6 +46,10 @@ class TTT {
       return 'X';
     } else if (TTT.checkHorizontalWin(grid, 'O')) {
       return 'O';
+    } else if (TTT.checkVerticalWin(grid, 'X')) {
+      return 'X';
+    } else if (TTT.checkVerticalWin(grid, 'O')) {
+      return 'O';
     }
 
   }
@@ -74,6 +78,21 @@ class TTT {
     });
 
     return win;
+  }
+
+  static checkVerticalWin(grid, player) {
+
+    for (let col = 0; col < grid.length; col++) {
+      const char1 = grid[0][col];
+      const char2 = grid[1][col];
+      const char3 = grid[2][col];
+
+      if ([char1, char2, char3].every(char => char === player)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   static endGame(winner) {

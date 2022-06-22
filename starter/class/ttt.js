@@ -33,21 +33,39 @@ class TTT {
     });
     Screen.addCommand('p', 'place a move at the cursor\'s position', () => {
       this.placeMove();
+      
+      const winner = TTT.checkWin(this.grid);
+
+      if (['O', 'X', 'T'].includes(winner)) {
+        TTT.endGame(winner);
+      }
     });
 
+    Screen.setMessage(`It's ${this.playerTurn}'s turn`);
+
     Screen.render();
+
+    Screen.printCommands();
   }
 
   placeMove() {
     const row = this.cursor.row;
     const col = this.cursor.col;
 
-    Screen.setGrid(row, col, this.playerTurn);
+    if (this.grid[row][col] === ' ') {
+      this.grid[row][col] = this.playerTurn;
 
-    if (this.playerTurn === 'X') {
-      this.playerTurn = 'O';
+      Screen.setGrid(row, col, this.playerTurn);
+      Screen.setMessage(`It's ${this.playerTurn}'s turn`);
+      Screen.render();
+
+      if (this.playerTurn === 'X') {
+        this.playerTurn = 'O';
+      } else {
+        this.playerTurn = 'X';
+      }
     } else {
-      this.playerTurn = 'X';
+      console.log('space is occupied');
     }
   }
 

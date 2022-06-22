@@ -17,15 +17,7 @@ class TTT {
     Screen.initialize(3, 3);
     Screen.setGridlines(true);
 
-    // Replace this with real commands
-    Screen.addCommand('t', 'test command (remove)', TTT.testCommand);
-
     Screen.render();
-  }
-
-  // Remove this
-  static testCommand() {
-    console.log("TEST COMMAND");
   }
 
   static checkWin(grid) {
@@ -35,6 +27,40 @@ class TTT {
     // Return 'T' if the game is a tie
     // Return false if the game has not ended
 
+    if (TTT.gridIsEmpty(grid)) {
+      return false;
+    } else if (TTT.checkHorizontalWin(grid, 'X')) {
+      return 'X';
+    } else if (TTT.checkHorizontalWin(grid, 'O')) {
+      return 'O';
+    }
+
+  }
+
+  static gridIsEmpty(grid) {
+
+    let isEmpty = true;
+    grid.forEach(row => {
+      if (!row.every(char => char === ' ')) {
+        isEmpty = false;
+      }
+    });
+
+    return isEmpty;
+
+  }
+
+  static checkHorizontalWin(grid, player) {
+
+    let win = false;
+    grid.forEach(row => {
+      if (row.every(char => char === player) && !(' ' in row)) {
+        win = true;
+        return;
+      }
+    });
+
+    return win;
   }
 
   static endGame(winner) {

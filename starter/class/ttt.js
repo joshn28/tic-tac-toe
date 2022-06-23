@@ -62,15 +62,12 @@ class TTT {
 
       if (this.playerTurn === 'X') {
         this.playerTurn = 'O';
-        
-        Screen.setMessage(`It's ${this.playerTurn}'s turn`);
-        Screen.render();
       } else {
         this.playerTurn = 'X';
-
-        Screen.setMessage(`It's ${this.playerTurn}'s turn`);
-        Screen.render();
       }
+
+      Screen.setMessage(`It's ${this.playerTurn}'s turn`);
+      Screen.render();
     } else {
       console.log('space is occupied');
     }
